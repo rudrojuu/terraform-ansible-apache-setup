@@ -1,0 +1,13 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "ubuntu_server" {
+  ami           = "ami-053b0d53c279acc90"  # Ubuntu Server 22.04 LTS (us-east-1)
+  instance_type = "t2.micro"               # Free tier eligible
+  key_name      = "your-keypair-name"      # Replace with your EC2 key pair
+
+  tags = {
+    Name = "Ubuntu-Terraform-Instance"
+  }
+}
