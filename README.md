@@ -1,12 +1,13 @@
+
 # Terraform + Ansible Project: Apache Setup on AWS EC2
 
-This is a beginner-friendly DevOps project that uses **Terraform** to provision an EC2 instance on AWS and **Ansible** to configure Apache web server on it.
+This is a beginner-friendly DevOps project that uses **Terraform** to provision an EC2 instance on AWS and **Ansible** to configure an Apache web server on it.
 
 ---
 
 ## Project Structure
 
-- `terraform/` — contains files to provision EC2 instance.
+- `terraform/` — contains files to provision the EC2 instance.
 - `ansible/` — contains Ansible inventory and playbook for Apache setup.
 
 ---
@@ -14,7 +15,7 @@ This is a beginner-friendly DevOps project that uses **Terraform** to provision 
 ## Tools Used
 
 - **Terraform**: To create AWS infrastructure (EC2 instance).
-- **Ansible**: To install and configure Apache server.
+- **Ansible**: To install and configure the Apache server.
 - **AWS EC2**: Ubuntu-based instance used for deployment.
 - **MobaXterm**: SSH terminal to connect to EC2.
 
@@ -38,13 +39,16 @@ cd terraform
 terraform init
 terraform apply
 
-### step 2: Connect to instance with public IP address
+---
+
+### Step 2: Connect to instance with public IP address
 
 ssh -i key.pem ubuntu@<your-ec2-public-ip>
 
+Replace <your-ec2-public-ip> with the public IP of your EC2 instance
+---
 
-
-### step 3: Ansible Apache Setup
+### Step 3: Ansible Apache Setup
 
 ## Files
 - `inventory` – Contains the IP of the EC2 instance.
@@ -54,6 +58,10 @@ ssh -i key.pem ubuntu@<your-ec2-public-ip>
 ```bash
 ansible-playbook -i inventory playbook.yml
 
-### step 4: open browser
+---
 
-http:/// <IP>
+### Step 4: open browser
+
+   http:/// <your-ec2-IP>
+
+Replace <your-ec2-public-ip> with the public IP of your EC2 instance. You should see the message “Hello from Ansible!” displayed.
